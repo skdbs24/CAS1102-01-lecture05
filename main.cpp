@@ -28,6 +28,43 @@ void decode_steganography(int image_data[], int data_size, std::string key) {
      * - If the value is 0, stop the loop. Otherwise, cast the value to a `char` and print it.
      */
 
+    int keyIndex = 0;
+
+    while (true)
+    {
+        // The current character from 'key' to read
+        char key_char = key[keyIndex % key.length()];
+
+        // Get the ASCII value of the current key character
+        int jump = (int)key_char;
+        
+        // Update the currentIndex by jumping
+        currentIndex += jump;
+        
+        // Stay in the array boundaries
+        if (currentIndex >= data_size)
+        {
+            std::cout << "Error: not within the array bounds" << std::endl;
+            break;
+        }
+        
+        // Read from secret value from the given image data
+        int secret_value = image_data[currentIndex];
+        
+        // If the value is 0, stop the loop
+        if (secret_value == 0)
+        {
+            break;
+        }
+        
+        // Otherwise, cast the value to a `char` and print it
+        std::cout << (char)secret_value;
+
+        // Move to the next character from key
+        keyIndex++;
+    }
+
+
 }
 
 
