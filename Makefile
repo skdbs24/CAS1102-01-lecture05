@@ -4,7 +4,7 @@
 # - stb_image.h 위치: project_root/third_party/stb/stb_image.h (권장)
 # - 또는 project_root/stb_image.h 도 허용됩니다(자동 탐색).
 
-CXX      := clang++         # macOS 기본: clang++, 리눅스는 g++도 OK
+CXX      := g++         # macOS 기본: clang++, 리눅스는 g++도 OK
 CXXFLAGS := -std=c++23 -O2 -Wall -Wextra -pedantic -Ithird_party/stb
 LDFLAGS  := 
 TARGET   := main
